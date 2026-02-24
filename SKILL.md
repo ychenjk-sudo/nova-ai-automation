@@ -66,11 +66,30 @@ python scripts/podcast_github_rss.py push
 pip install edge-tts requests
 ```
 
+## 播客脚本生成 Prompt
+
+生成播客脚本时，参考 `references/podcast_script_prompt.md` 中的固定格式。
+
+**脚本结构：**
+1. 标题行：`NovaAI笔记播客 第X期：[嘉宾] 谈"[主题]"`
+2. 【开场】— 固定欢迎语
+3. 【本期介绍】— 采访背景 + 嘉宾介绍 + 核心主题
+4. 【第X部分：小标题】— 多个主题段落
+5. 【结语】— 核心观点总结 + 结束语
+
+**关键要求：**
+- 纯文本，不用 markdown 符号
+- 口语化表达，适合 TTS 朗读
+- 目标 3000-6000 字（15-30 分钟）
+- 数字用中文：百分之九十、2026 年
+
 ## 文件结构
 ```
 nova-ai-automation/
 ├── SKILL.md
-└── scripts/
-    ├── youtube_to_podcast.py    # YouTube 翻译转播客主流程
-    └── podcast_github_rss.py    # RSS Feed 生成器
+├── scripts/
+│   ├── youtube_to_podcast.py    # YouTube 翻译转播客主流程
+│   └── podcast_github_rss.py    # RSS Feed 生成器
+└── references/
+    └── podcast_script_prompt.md # 播客脚本生成 Prompt 模板
 ```
